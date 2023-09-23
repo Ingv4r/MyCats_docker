@@ -5,6 +5,7 @@ from .models import Achievement, Cat
 from .serializers import AchievementSerializer, CatSerializer
 
 
+
 class CatViewSet(viewsets.ModelViewSet):
     """View set for Cat's model."""
     queryset = Cat.objects.all()
