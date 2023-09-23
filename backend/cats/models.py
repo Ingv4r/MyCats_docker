@@ -12,6 +12,7 @@ class Achievement(models.Model):
 
 
 class Cat(models.Model):
+    """Django model for cats."""
     name = models.CharField(max_length=16)
     color = models.CharField(max_length=16)
     birth_year = models.IntegerField()
@@ -28,12 +29,15 @@ class Cat(models.Model):
     )
 
     def __str__(self):
+        """Return a string representation of cat name."""
         return self.name
 
 
 class AchievementCat(models.Model):
+    """Django model for achievements."""
     achievement = models.ForeignKey(Achievement, on_delete=models.CASCADE)
     cat = models.ForeignKey(Cat, on_delete=models.CASCADE)
 
     def __str__(self):
+        """Return a string representation of cat's achievement."""
         return f'{self.achievement} {self.cat}'
