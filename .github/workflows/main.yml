@@ -171,7 +171,8 @@ jobs:
         message: Деплой Kittygram успешно выполнен!
 
   send_failure_message:
-    if: ${{ failure() }}
+    if: ${{ cancelled() }}
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
     - name: Send message
